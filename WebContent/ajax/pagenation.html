@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/webproject/js/mricode.pagination.css" rel="stylesheet" />
+<script src="/webproject/js/jquery-2.1.4.min.js"></script>
+<script src="/webproject/js/mricode.pagination.js"></script>
+</head>
+<body>
+	<div id="content" class="sd"></div>
+	<div id="page" class="m-pagination"></div>
+<script type="text/javascript">
+$(function(){
+	$('#page').pagination({
+		  pageSize: 5,
+		  pageIndex:1,
+		  firstBtnText:'首页',
+		  lastBtnText:'尾页',
+		  prevBtnText:'上一页', 
+		  nextBtnText:'下一页',
+		  showInfo:true,
+		  noInfoText:'没有数据',
+		  showJump:true,
+		  showPageSizes:true,
+		  pageSizeItems:[10,20,30],
+		  remote:{
+			  	url:'/webproject/page.do',
+			  	totalName:'totalnumber',
+			  	success:function(pageinfo){
+			  		$('#content').empty();
+			  		var ul="<ul>";
+			  		$(pageinfo.data).each(function(index,goods){
+			  			ul+="<li>" + goods.gtitle+"</li>";
+			  		}) 
+			  		ul+="</ul>";
+			  		$('#content').append(ul);
+			  	}
+		  }
+		  
+	});
+})
+</script>
+</body>
+</html>

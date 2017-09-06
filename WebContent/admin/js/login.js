@@ -1,0 +1,52 @@
+$(function(){
+	$('#login').dialog({
+		width:400,
+		height:200,
+		title:'用户登录',
+		collapsible:true,
+		iconCls:'icon-man',
+		buttons:[{
+			text:'登入',
+			iconCls:'icon-ok',
+			handler:function(){
+				var isValid = $(this).form('validate');
+				if(isValid){
+					$.ajax({
+						type:'post',
+						url:'/webproject/logincontroler.do',
+						data:$('form').serialize(),
+						success:function(data){
+							if(data=="1"){
+								window.location='index.html';
+							}
+							if(data=="0"){
+								$.messager.alert('登入失败','账号密码输入错误！','info');
+							}
+						}
+					});
+				}else{
+					$.messager.alert('登入失败','账号密码验证不通过','info');
+				}
+			}
+		},{
+			text:'取消',
+			iconCls:'icon-cancel',
+			handler:function(){
+				
+			}
+		}]
+	});
+	$('#username').textbox({    
+	    iconCls:'icon-man', 
+	    iconAlign:'left',
+	    prompt:'请输入账号'
+	});
+	$('#username').validatebox({    
+	    required: true  
+	});  
+	$('#password').textbox({    
+	    iconCls:'icon-lock', 
+	    iconAlign:'left',
+	    prompt:'请输入密码'
+	});
+});

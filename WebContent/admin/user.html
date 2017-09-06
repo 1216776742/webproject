@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用户管理</title>
+		<link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css"/>
+		<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css"/>
+		<script src="easyui/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="easyui/jquery.easyui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="easyui/locale/easyui-lang-zh_CN.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/user.js"> </script>
+	</head>
+	<body>
+		用户列表
+		<hr size="0"/>
+		<table id="tab">
+			<tr>
+			<td>
+				<div id="dd" class="easyui-dialog" title="添加用户"
+				style="width: 400px; height: 300px;" data-options="closed: true,iconCls:'icon-edit',resizable:true,modal:true,collapsible:true,buttons:'#footer'">
+				<form method="post" id="f1" name="f1">
+					<table class="tb" >
+						<tr>
+						<td>用户名：</td>
+						<td><input type="text" class="easyui-validatebox easyui-textbox" data-options="required:true,prompt:'请输入用户名'" name="uname" id="uname"></td>
+						</tr>
+						<tr>
+						<td>密码：</td>
+						<td><input type="text" class="easyui-validatebox easyui-textbox" data-options="required:true,prompt:'请输入密码'" name="upsw" id="upsw"></td>
+						</tr>
+						<tr>
+						<td>邮箱：</td>
+						<td><input type="text" class="easyui-validatebox easyui-textbox" data-options="required:true,validType:'email',prompt:'请输入邮箱'" name="email" id="email"></td>
+						</tr>
+						<tr>
+						<td>电话：</td>
+						<td><input type="text" class="easyui-validatebox easyui-textbox" data-options="required:true,prompt:'请输入电话号码'" name="tel" id="tel"></td>
+						</tr>
+						<tr>
+						<td>地址：</td>
+						<td><input type="text" class="easyui-validatebox easyui-textbox" data-options="required:true,prompt:'请输入地址'" name="address" id="address"></td>
+						</tr>
+						<tr>
+						<td>性别:</td>
+						<td>
+						<select class="easyui-combobox" id="cc" name="cc" style="width:60px;" >   
+						    <option value="男">男</option>   
+						    <option value="女">女</option>   
+						</select> 
+						</td>
+						</tr>
+					</table>
+				</form>
+				</div>
+				<div id="footer">
+					<a href="#"  id="btnsave" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
+					<a href="#"  id="btncanel" class="easyui-linkbutton" data-options="iconCls:'icon-remove'">取消</a>
+				</div>
+			</td>
+		</tr>
+		</table>
+		<p/>
+		
+	</body>
+</html>
