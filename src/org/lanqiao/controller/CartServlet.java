@@ -135,9 +135,6 @@ import org.lanqiao.service.OrderService;
 import org.lanqiao.service.impl.OrderDetailServiceImpl;
 import org.lanqiao.service.impl.OrderServiceImpl;
 import org.lanqiao.util.CartUtil;
-
-import sun.jdbc.odbc.OdbcDef;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 @WebServlet(name = "cartServlet", urlPatterns = { "/cart.do" })
